@@ -15,15 +15,15 @@ public static void main(String[] args) throws IOException {
 	while(st.hasMoreTokens()) {
 		num[i++]=Integer.parseInt(st.nextToken());
 	}
-	i=0;
+	i=1;
 	while(true) {
 		if(num[0]==a&&num[1]==b&&num[2]==c)break;
 		a++;
 		b++;
 		c++;
 		if(a>15)a=1;
-		if(a>28)b=1;
-		if(a>19)c=1;
+		if(b>28)b=1;
+		if(c>19)c=1;
 		i++;
 	}
 	System.out.println(i);
