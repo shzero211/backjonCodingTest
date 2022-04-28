@@ -9,31 +9,26 @@ public static void main(String[] args) {
 	for(int i=0;i<len;i++) {
 		int n=sc.nextInt();
 		int m=sc.nextInt();
-		int a=sc.nextInt();
-		int b=sc.nextInt();
+		int x=sc.nextInt();
+		int y=sc.nextInt();
 		
-		int num1=1;
-		int num2=1;
-		int num=1;
-		boolean flag=false;
-		
-		while(num1<=n&&num2<=m) {
-			num2++;
-			num++;
-			if(a==num1&&b==num2) {
-				System.out.println(num);
-				flag=true;
+		int num=0;
+		int lcm=n*m/gcd(n,m);
+		int ans=-1;
+		while(num*n<lcm) {
+			if((num*n+x-y)%m==0) {
+				ans=n*num+x;
 				break;
 			}
-			if(num2>m) {
-				num1++;
-				num2=1;
-			}
-			
-			
+			num++;
 		}
-		if(flag==false)
-			System.out.println(-1);
+		System.out.println(ans);
+		
 	}
+}
+public static int gcd(int n1,int n2) {
+	if(n2==0)
+		return n1;
+	return gcd(n2,n1%n2);
 }
 }
